@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Light theme (default) */
+  :root {
+    color-scheme: light;
+    --surface: 255 255 255;
+    --surface-alt: 246 249 252;
+    --surface-soft: 249 251 253;
+    --surface-wash: 243 248 253;
+    --surface-wash2: 238 245 252;
+
+    --m-50: 238 242 248;
+    --m-100: 212 221 238;
+    --m-200: 169 188 221;
+    --m-300: 126 156 204;
+    --m-400: 84 126 187;
+    --m-500: 58 100 163;
+    --m-600: 43 77 127;
+    --m-700: 31 56 89;
+    --m-800: 21 38 61;
+    --m-900: 12 24 40;
+
+    --e-50: 236 251 255;
+    --e-100: 208 244 255;
+    --e-200: 163 232 255;
+    --e-600: 0 131 201;
+    --e-700: 6 107 163;
+    --a-50: 238 249 244;
+    --a-600: 12 124 77;
+  }
+
+  /* Dark theme: same names, inverted scale */
+  .dark {
+    color-scheme: dark;
+    --surface: 11 20 36;
+    --surface-alt: 15 26 44;
+    --surface-soft: 18 30 50;
+    --surface-wash: 13 28 48;
+    --surface-wash2: 16 33 56;
+
+    --m-50: 22 36 58;
+    --m-100: 34 51 78;
+    --m-200: 52 76 110;
+    --m-300: 96 118 152;
+    --m-400: 122 146 181;
+    --m-500: 150 171 203;
+    --m-600: 172 190 217;
+    --m-700: 196 209 230;
+    --m-800: 217 226 241;
+    --m-900: 240 244 250;
+
+    --e-50: 14 40 60;
+    --e-100: 17 52 78;
+    --e-200: 24 74 106;
+    --e-600: 56 182 240;
+    --e-700: 107 216 255;
+    --a-50: 14 42 32;
+    --a-600: 52 175 124;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-surface text-midnight-800;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  }
+
+  ::selection {
+    @apply bg-electric-200 text-midnight-900;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply text-xs font-medium uppercase tracking-[0.22em] text-electric-600;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-6 py-3 text-sm font-medium text-white transition-all duration-300 ease-premium hover:bg-electric-600 hover:-translate-y-0.5 active:translate-y-0 dark:bg-electric-400 dark:text-navy-950 dark:hover:bg-electric-300;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-midnight-200 bg-surface px-6 py-3 text-sm font-medium text-midnight-800 transition-all duration-300 ease-premium hover:border-electric-400 hover:text-electric-700 hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-midnight-100 bg-surface px-4 py-3 text-sm text-midnight-900 placeholder:text-midnight-300 transition-colors focus:border-electric-400 focus:outline-none focus:ring-4 focus:ring-electric-100;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
